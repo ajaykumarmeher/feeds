@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_show_all"
+          android:icon="@drawable/menu_feed_list"
+          android:title="@string/all"
+          android:visible="false"
+          android:showAsAction="always|withText"/>
+
+    <item android:id="@+id/menu_mark_read"
+          android:icon="@drawable/menu_mark"
+          android:title="@string/mark_read"
+          android:visible="false"
+          android:showAsAction="always|withText"/>
+
+    <item android:id="@+id/menu_refresh"
+          android:icon="@drawable/menu_feed_refresh"
+          android:title="@string/refresh"
+          android:showAsAction="always|withText"/>
+
+    <item android:id="@+id/menu_feeds"
+          android:icon="@drawable/menu_feed"
+          android:title="@string/feeds"
+          android:showAsAction="always|withText">
+        <menu>
+            <item android:id="@+id/menu_feed_select"
+                  android:icon="@drawable/menu_feed_switch"
+                  android:title="@string/select_feed"/>
+            <item android:id="@+id/menu_feed_add"
+                  android:icon="@drawable/menu_feed_add"
+                  android:title="@string/add"/>
+            <item android:id="@+id/menu_feed_edit"
+                  android:icon="@drawable/menu_feed_edit"
+                  android:title="@string/edit"/>
+            <item android:id="@+id/menu_feed_delete"
+                  android:icon="@drawable/menu_feed_delete"
+                  android:title="@string/delete"/>
+            <item android:id="@+id/menu_feed_copy"
+                  android:icon="@drawable/menu_feed_copy"
+                  android:title="@string/copy_feed_url"/>
+        </menu>
+    </item>
+
+    <item android:id="@+id/menu_import"
+          android:title="@string/import_OPML"
+          android:showAsAction="never"/>
+
+    <item android:id="@+id/menu_export"
+          android:title="@string/export_OPML"
+          android:showAsAction="never"/>
+
+    <item android:id="@+id/menu_settings"
+          android:title="@string/settings"
+          android:showAsAction="never"/>
+
+</menu>

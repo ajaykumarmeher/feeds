@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="msg_enter_valid_url">Please enter a valid URL.</string>
+
+    <!-- ################################################################# -->
+
+    <string name="title_category_refresh">Refresh Settings</string>
+
+    <string name="key_feedreader_wakeup">key_feedreader_wakeup</string>
+    <string name="title_feedreader_wakeup">Refresh during sleep</string>
+    <string name="summary_feedreader_wakeup">Poll feeds even while device sleeps (might drain your battery faster).</string>
+
+    <string name="key_feedreader_notification">key_feedreader_notification</string>
+    <string name="title_feedreader_notification">Notify about new articles</string>
+    <string name="summary_feedreader_notification">Show status bar message when new articles have been fetched.</string>
+
+    <string name="key_feedreader_notification_silent">key_feedreader_notification_silent</string>
+    <string name="title_feedreader_notification_silent">Silent notification</string>
+    <string name="summary_feedreader_notification_silent">Don\'t play sound/vibrate when notifying about new articles.</string>
+
+    <string name="key_feedreader_refresh_status">key_feedreader_refresh_status</string>
+    <string name="title_feedreader_refresh_status">Show refresh status</string>
+    <string name="summary_feedreader_refresh_status">Show notification in status bar while feed refresh runs.</string>
+
+    <string name="key_feedreader_mastersync">key_feedreader_mastersync</string>
+    <string name="title_feedreader_mastersync">Conform to global sync</string>
+    <string name="summary_feedreader_mastersync">Only fetch feeds if account synchronization is enabled in device settings.</string>
+
+    <string name="key_feedreader_sync">key_feedreader_sync</string>
+    <string name="title_feedreader_sync">Automatic feed updates</string>
+    <string name="summary_feedreader_sync">Enable to fetch feeds periodically, disable for manual refresh only.</string>
+
+    <!-- ################################################################# -->
+
+    <string name="title_category_interface">UI Settings</string>
+
+    <string name="key_feedreader_text_size">key_feedreader_text_size</string>
+    <string name="title_feedreader_text_size">Article text size</string>
+
+    <!-- ################################################################# -->
+
+    <string name="title_category_feed">Feed Settings</string>
+
+    <string name="key_feed_url">key_feed_url</string>
+    <string name="title_feed_url">RSS/Atom URL</string>
+    <string name="summary_feed_url">Unfortunately, you currently have to enter or paste the URL manually.</string>
+
+    <string name="key_feed_refresh_interval">key_feed_refresh_interval</string>
+    <string name="title_feed_refresh_interval">Automatic refresh interval</string>
+    <string name="summary_feed_refresh_interval">Will run even when the application is closed but not while your device sleeps.</string>
+    <string-array name="refresh_interval_labels">
+        <item>5 Minutes</item>
+        <item>15 Minutes</item>
+        <item>30 Minutes</item>
+        <item>3 Hours</item>
+        <item>12 Hours</item>
+    </string-array>
+    <string-array name="refresh_interval_milliseconds">
+        <item>300000</item>
+        <item>900000</item>
+        <item>1800000</item>
+        <item>10800000</item>
+        <item>43200000</item>
+    </string-array>
+
+    <string name="key_feed_notify_new">key_feed_notify_new</string>
+    <string name="title_feed_notify_new">New article notification</string>
+    <string name="summary_feed_notify_new">A message will be shown when new articles have been polled.</string>
+
+    <string name="key_feed_max_age_days">key_feed_max_age_days</string>
+    <string name="title_feed_max_age_days">Remove articles after...</string>
+    <string name="summary_feed_max_age_days">When articles are no longer pushed on the feed, keep them for a given time.</string>
+    <string-array name="max_age_days_labels">
+        <item>3 days</item>
+        <item>7 days</item>
+        <item>2 weeks</item>
+        <item>1 month</item>
+    </string-array>
+    <string-array name="max_age_days">
+        <item>3</item>
+        <item>7</item>
+        <item>14</item>
+        <item>30</item>
+    </string-array>
+
+    <string name="key_feed_preview_length">key_feed_preview_length</string>
+    <string name="title_feed_preview_length">Preview text length</string>
+    <string name="summary_feed_preview_length">Length of text shown in article list preview.</string>
+    <string-array name="preview_length_labels">
+        <item>None</item>
+        <item>Less</item>
+        <item>Regular</item>
+        <item>More</item>
+        <item>All</item>
+    </string-array>
+    <string-array name="preview_length_values">
+        <item>NONE</item>
+        <item>LESS</item>
+        <item>REGULAR</item>
+        <item>MORE</item>
+        <item>ALL</item>
+    </string-array>
+
+    <!-- ################################################################# -->
+
+    <string name="title_category_widget">Widget Settings</string>
+
+    <string name="key_feed_prefix">key_feed_prefix</string>
+    <string name="title_feed_prefix">Widget display prefix</string>
+    <string name="summary_feed_prefix">Before the title of each feed entry, show...</string>
+    <string-array name="prefix_labels">
+        <item>None</item>
+        <item>Entry Author</item>
+        <item>Entry Timestamp</item>
+        <item>Feed Title</item>
+    </string-array>
+    <string-array name="prefix_values">
+        <item>NONE</item>
+        <item>AUTHOR</item>
+        <item>TIMESTAMP</item>
+        <item>FEED_TITLE</item>
+    </string-array>
+
+    <string name="key_feed_text_color">key_feed_text_color</string>
+    <string name="title_feed_text_color">Widget text color</string>
+    <string name="summary_feed_text_color">Color of article headlines of this feed when shown in the widget.</string>
+
+    <!-- ################################################################# -->
+
+    <string name="key_feedwidget_toolbar">key_feedwidget_toolbar</string>
+    <string name="title_feedwidget_toolbar">Display top toolbar</string>
+    <string name="summary_feedwidget_toolbar">Warning! If you disable the toolbar, you can no longer configure the widget.</string>
+
+    <string name="key_feedwidget_background_color">key_feedwidget_background_color</string>
+    <string name="title_feedwidget_background_color">Background color</string>
+
+    <string name="key_feedwidget_text_size">key_feedwidget_text_size</string>
+    <string name="title_feedwidget_text_size">Text size</string>
+
+    <string name="key_feedwidget_feeds">key_feedwidget_feeds</string>
+    <string name="title_feedwidget_feeds">Select feeds...</string>
+
+    <!-- ################################################################# -->
+
+    <string-array name="text_size_labels">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+    <string-array name="text_size_values">
+        <item>SMALL</item>
+        <item>MEDIUM</item>
+        <item>LARGE</item>
+    </string-array>
+
+</resources>

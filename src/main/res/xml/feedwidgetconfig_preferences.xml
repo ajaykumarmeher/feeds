@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="@string/title_category_widget">
+        <Preference
+                android:key="@string/key_feedwidget_feeds"
+                android:title="@string/title_feedwidget_feeds"/>
+        <Preference
+                android:key="@string/key_feedwidget_background_color"
+                android:title="@string/title_feedwidget_background_color"/>
+        <ListPreference
+                android:key="@string/key_feedwidget_text_size"
+                android:title="@string/title_feedwidget_text_size"
+                android:entries="@array/text_size_labels"
+                android:entryValues="@array/text_size_values"/>
+        <CheckBoxPreference
+                android:key="@string/key_feedwidget_toolbar"
+                android:title="@string/title_feedwidget_toolbar"
+                android:summary="@string/summary_feedwidget_toolbar"/>
+    </PreferenceCategory>
+</PreferenceScreen>

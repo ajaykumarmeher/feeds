@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="@string/title_category_feed">
+        <EditTextPreference
+                android:key="@string/key_feed_url"
+                android:title="@string/title_feed_url"
+                android:summary="@string/summary_feed_url"
+                android:inputType="textNoSuggestions"/>
+        <ListPreference
+                android:key="@string/key_feed_refresh_interval"
+                android:title="@string/title_feed_refresh_interval"
+                android:summary="@string/summary_feed_refresh_interval"
+                android:entries="@array/refresh_interval_labels"
+                android:entryValues="@array/refresh_interval_milliseconds"/>
+        <CheckBoxPreference
+                android:key="@string/key_feed_notify_new"
+                android:title="@string/title_feed_notify_new"
+                android:summary="@string/summary_feed_notify_new"/>
+        <ListPreference
+                android:key="@string/key_feed_max_age_days"
+                android:title="@string/title_feed_max_age_days"
+                android:summary="@string/summary_feed_max_age_days"
+                android:entries="@array/max_age_days_labels"
+                android:entryValues="@array/max_age_days"/>
+        <ListPreference
+                android:key="@string/key_feed_preview_length"
+                android:title="@string/title_feed_preview_length"
+                android:summary="@string/summary_feed_preview_length"
+                android:entries="@array/preview_length_labels"
+                android:entryValues="@array/preview_length_values"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="@string/title_category_widget">
+        <ListPreference
+                android:key="@string/key_feed_prefix"
+                android:title="@string/title_feed_prefix"
+                android:summary="@string/summary_feed_prefix"
+                android:entries="@array/prefix_labels"
+                android:entryValues="@array/prefix_values"/>
+        <Preference
+                android:key="@string/key_feed_text_color"
+                android:title="@string/title_feed_text_color"
+                android:summary="@string/summary_feed_text_color"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.fourthline.android.feeds"
+          android:versionCode="13"
+          android:versionName="1.0.13">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!-- Need Honeycomb, prefer ICS -->
+    <uses-sdk android:minSdkVersion="11"
+              android:targetSdkVersion="15"/>
+
+    <application android:icon="@drawable/appicon"
+                 android:name=".FeedsApplication"
+                 android:label="@string/AppName"
+                 android:theme="@android:style/Theme.Holo">
+
+        <activity android:name=".FeedEntryListActivity"
+                  android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".FeedEntryDetailsActivity"
+                  android:launchMode="singleTask"/>
+
+        <activity android:name=".FeedsPreferenceActivity"/>
+
+        <activity android:name=".FeedConfigPreferenceActivity"/>
+
+        <activity android:name=".widget.FeedWidgetPreferenceActivity"
+                  android:launchMode="singleTask"
+                  android:taskAffinity="feed.widget"
+                  android:excludeFromRecents="true"/>
+
+        <activity android:name=".filechooser.FileChooserActivity"
+                  android:icon="@drawable/folder_open"
+                  android:label="@string/choose_file" >
+        </activity>
+
+        <provider android:name=".content.FeedContent"
+                  android:authorities="org.fourthline.android.feeds.content.feedcontent"/>
+
+        <service android:name=".refresh.FeedRefreshService"
+                 android:exported="false"/>
+
+        <service android:name=".widget.FeedWidgetViewsService"
+                 android:permission="android.permission.BIND_REMOTEVIEWS"
+                 android:exported="false"/>
+
+        <receiver android:name=".refresh.OnStartupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="org.fourthline.android.feeds.refresh.OnStartupReceiver.STARTUP"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".widget.FeedWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="feed.FEEDWIDGET_UDPATE"/>
+                <action android:name="feed.FEEDWIDGET_UDPATE_ALL"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                       android:resource="@xml/feedwidget_info"/>
+        </receiver>
+
+    </application>
+
+</manifest>

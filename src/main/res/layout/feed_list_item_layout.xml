@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.fourthline.android.feeds.widget.CheckableLinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/feed_list_item">
+
+    <TextView
+            android:id="@+id/feed_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:singleLine="true"/>
+
+    <!--
+    <RelativeLayout
+            android:id="@+id/feedconfig_last_refresh_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp">
+        <TextView
+                android:id="@+id/feedconfig_last_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:textStyle="italic"
+                android:textSize="10sp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/feedconfig_last_refresh"
+                android:textStyle="italic"
+                android:textSize="10sp"
+                android:layout_marginRight="4dp"
+                android:text="@string/feedconfig_last_refresh"/>
+    </RelativeLayout>
+    -->
+
+</org.fourthline.android.feeds.widget.CheckableLinearLayout>

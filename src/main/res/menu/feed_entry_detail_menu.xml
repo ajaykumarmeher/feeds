@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_view"
+          android:icon="@drawable/menu_view"
+          android:title="@string/view_in_browser"
+          android:showAsAction="always|withText"/>
+
+    <item android:id="@+id/menu_copy_url"
+          android:icon="@drawable/menu_copy"
+          android:title="@string/copy_url"
+          android:showAsAction="always|withText"/>
+<!--
+    <item android:id="@+id/menu_share_url"
+          android:title="@string/share_url"
+          android:showAsAction="ifRoom|withText"
+          android:actionProviderClass="android.widget.ShareActionProvider"/>
+-->
+    <item android:id="@+id/menu_settings"
+          android:title="@string/settings"
+          android:showAsAction="never"/>
+
+</menu>

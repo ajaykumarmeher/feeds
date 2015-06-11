@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:stretchColumns="1"
+             android:shrinkColumns="1">
+    <TableRow>
+        <ImageView
+                android:id="@+id/spinner"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/spinner_black_16"/>
+        <TextView
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/loading_articles"/>
+    </TableRow>
+</TableLayout>
