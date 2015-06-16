@@ -260,12 +260,9 @@ public class FeedRefreshService extends IntentService {
             SyndFeed syndFeed = input.build(new XmlReader(urlConnection));
             log.fine("Got feed data, converting...");
 
-            if (syndFeed.getLink() == null) {
-                log.warning("Feed doesn't even have a link, skipping: " + syndFeed);
-                return haveNewEntries;
-            }
+            String feedLink = syndFeed.getLink() != null ? syndFeed.getLink() : feedRefresh.url;
 
-            Feed feed = createFeed(feedRefresh.id, syndFeed);
+            Feed feed = createFeed(feedRefresh.id, feedLink, syndFeed);
             log.fine("Have feed: " + feed.getValue(Feed.LINK));
 
             if (feedRefresh.action.equals(RefreshAction.UPDATE)) {
@@ -446,12 +443,12 @@ public class FeedRefreshService extends IntentService {
         return dueTime <= System.currentTimeMillis();
     }
 
-    protected Feed createFeed(long id, SyndFeed syndFeed) {
+    protected Feed createFeed(long id, String link, SyndFeed syndFeed) {
         // TODO: author
         return new Feed(
            id,
            0,
-           syndFeed.getLink(),
+           link,
            syndFeed.getTitle() != null ? syndFeed.getTitle() : Feed.DEFAULT_TITLE,
            syndFeed.getDescription() != null ? syndFeed.getDescription() : Feed.DEFAULT_DESCRIPTION,
            syndFeed.getPublishedDate() != null ? syndFeed.getPublishedDate().getTime() : Feed.DEFAULT_DATE
