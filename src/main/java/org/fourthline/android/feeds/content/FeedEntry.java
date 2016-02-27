@@ -165,14 +165,18 @@ public class FeedEntry extends PersistentEntity {
 
     public static String getDescription(Cursor cursor) {
         String description = DataType.read(cursor, FeedEntry.DESCRIPTION_VALUE, FeedEntry.ALIAS_PREFIX);
-        if (description.equals(DEFAULT_DESCRIPTION_VALUE)) {
+        if (description == null || description.equals(DEFAULT_DESCRIPTION_VALUE)) {
             description = DataType.read(cursor, FeedEntry.TITLE, FeedEntry.ALIAS_PREFIX);
         }
         return description;
     }
 
+    public static String getDescriptionType(Cursor cursor) {
+        return DataType.read(cursor, FeedEntry.DESCRIPTION_TYPE, FeedEntry.ALIAS_PREFIX);
+    }
+
     public static boolean isDescriptionHTML(Cursor cursor) {
-        return DataType.read(cursor, FeedEntry.DESCRIPTION_TYPE, FeedEntry.ALIAS_PREFIX).equals("text/html");
+        return getDescriptionType(cursor).equals("text/html");
     }
 
     public boolean isExpired(int maxAgeDays) {

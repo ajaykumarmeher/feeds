@@ -31,24 +31,21 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import com.googlecode.sqb.query.DataType;
 import com.sun.syndication.feed.atom.Content;
+import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
-import org.fourthline.android.feeds.R;
 import org.fourthline.android.feeds.FeedEntryListActivity;
+import org.fourthline.android.feeds.R;
 import org.fourthline.android.feeds.content.Feed;
 import org.fourthline.android.feeds.content.FeedConfig;
 import org.fourthline.android.feeds.content.FeedEntry;
 import org.seamless.util.Exceptions;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.SocketTimeoutException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -456,14 +453,34 @@ public class FeedRefreshService extends IntentService {
     }
 
     protected FeedEntry createFeedEntry(long id, SyndEntry syndEntry, long currentTime) {
+        String descriptionType = null;
+        String descriptionValue = null;
 
-        // We can never be sure what the Rome crap is doing internally... it is definitely not
-        // masking Atom types with MIME types, so we need to check for that and correct.
-        String descriptionType = FeedEntry.DEFAULT_DESCRIPTION_TYPE;
-        if (syndEntry.getDescription() != null && syndEntry.getDescription().getType() != null) {
-            descriptionType = syndEntry.getDescription().getType();
+        if (syndEntry.getDescription() != null) {
+            if (syndEntry.getDescription().getType() != null) {
+                descriptionType = syndEntry.getDescription().getType();
+            }
+            if (syndEntry.getDescription().getValue() != null) {
+                descriptionValue = syndEntry.getDescription().getValue();
+            }
         }
-        if (descriptionType.equals(Content.HTML)) {
+
+        // If we don't have description (summary on atom feed entry), use the first content item
+        if (descriptionValue == null && syndEntry.getContents().size() > 0) {
+            SyndContent content = syndEntry.getContents().get(0);
+            descriptionType = content.getType();
+            descriptionValue = content.getValue();
+        }
+
+        // Fallback to safe values
+        if (descriptionValue == null || descriptionValue.length() == 0
+            || descriptionType == null || descriptionType.length() == 0) {
+            descriptionValue = FeedEntry.DEFAULT_DESCRIPTION_VALUE;
+            descriptionType = FeedEntry.DEFAULT_DESCRIPTION_TYPE;
+        }
+
+        // Proper MIME types
+       if (descriptionType.equals(Content.HTML)) {
             descriptionType = "text/html";
         } else if (descriptionType.equals(Content.TEXT)) {
             descriptionType = "text/plain";
@@ -481,7 +498,7 @@ public class FeedRefreshService extends IntentService {
            syndEntry.getPublishedDate() != null ? syndEntry.getPublishedDate().getTime() : FeedEntry.DEFAULT_DATE,
            syndEntry.getUpdatedDate() != null ? syndEntry.getUpdatedDate().getTime() : FeedEntry.DEFAULT_DATE,
            descriptionType,
-           syndEntry.getDescription() != null && syndEntry.getDescription().getValue() != null ? syndEntry.getDescription().getValue() : FeedEntry.DEFAULT_DESCRIPTION_VALUE,
+           descriptionValue,
            false
         );
     }

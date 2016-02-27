@@ -143,6 +143,15 @@ public class FeedEntryListActivity extends AbstractFeedReaderActivity implements
                 intent = new Intent(this, FeedsPreferenceActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.menu_about:
+                Toast.makeText(
+                    this,
+                    "Feeds is Free Software. " +
+                        "See https://github.com/4thline/feeds for more information.",
+                    Toast.LENGTH_LONG
+                ).show();
+                return true;
+
         }
         return false;
     }

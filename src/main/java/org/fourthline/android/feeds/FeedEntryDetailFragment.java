@@ -218,9 +218,13 @@ public class FeedEntryDetailFragment extends Fragment
         String entryTitle = Html.fromHtml(entry.getValue(FeedEntry.TITLE)).toString();
         feedEntryTitleView.setText(entryTitle);
 
+        log.fine("Feed entry description type: " + FeedEntry.getDescriptionType(cursor));
+        String html = FeedEntry.getDescriptionAsHTML(cursor);
+        log.fine("Feed entry description HTML\n: " +  html);
+
         descriptionView.loadDataWithBaseURL(
             "fake://android.developers.are.morons.and.this.is.needed.for.umlauts",
-            FeedEntry.getDescriptionAsHTML(cursor),
+            html,
             "text/html",
             "utf-8",
             null

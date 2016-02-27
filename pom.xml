@@ -5,7 +5,7 @@
 
     <groupId>org.fourthline.android</groupId>
     <artifactId>feeds</artifactId>
-    <version>1.0.13</version>
+    <version>1.0.14</version>
 
     <packaging>apk</packaging>
 
